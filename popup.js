@@ -8,11 +8,10 @@ chrome.tabs.getSelected(null, function (tab) {
 });
 
 document.body.onload = function () {
-    var testArray = ["aaa", "bbb", "ccc","ddd"];
+    // var testArray = ["aaa", "bbb", "ccc","ddd"];
 
-    chrome.storage.local.set({ list: testArray }, function () {
-       
-    });
+    // chrome.storage.local.set({ list: testArray }, function () {
+    // });
     var ul = document.getElementById("savedList");
 
     chrome.storage.local.get({ list: [] }, function (data) {
@@ -26,13 +25,28 @@ function generateList(list) {
     for (var i = 0; i < list.length; i++) {
         var li = document.createElement("li");
         var but = document.createElement("button");
+        var ref = document.createElement("a");
+        ref.setAttribute('href', list[i]);
+        ref.setAttribute('target', "_blank"); // oper in new tab but closes the extension
         but.setAttribute('id', i);
         but.addEventListener("click", remove);
         li.setAttribute('id', i);
         but.appendChild(document.createTextNode('Remove'));
-        li.appendChild(document.createTextNode(list[i]));
+        // li.appendChild(document.createTextNode(list[i]));
+        ref.appendChild(document.createTextNode(truncateTextIfLongerThan(list[i],30)));
+        li.appendChild(ref);
         li.appendChild(but);
         ul.appendChild(li);
+    }
+}
+
+function truncateTextIfLongerThan(str,thresh) {
+    let ending = '...'
+
+    if (str.length > thresh) {
+        return str.substring(0, thresh - ending.length) + ending;
+    } else {
+        return str;
     }
 }
 

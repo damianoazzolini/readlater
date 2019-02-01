@@ -1,0 +1,18 @@
+.button {
+    display: inline;
+    height: 10px;
+    width: 10px;
+    margin: 4px 2px;
+    border: 1px solid rgb(175, 76, 76);
+    color: white;
+    position: static;
+}
+
+/*
+.removebutton {
+    background-image: url('https://img.icons8.com/material/24/000000/minus.png');
+    background-size: 10px 10px;
+    height: 10px;  
+    width: 10px;
+}
+*/

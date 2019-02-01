@@ -29,9 +29,10 @@ function generateList(list) {
         ref.setAttribute('href', list[i]);
         ref.setAttribute('target', "_blank"); // oper in new tab but closes the extension
         but.setAttribute('id', i);
+        but.setAttribute('class','button removebutton');
         but.addEventListener("click", remove);
         li.setAttribute('id', i);
-        but.appendChild(document.createTextNode('Remove'));
+        but.appendChild(document.createTextNode('R'));
         // li.appendChild(document.createTextNode(list[i]));
         ref.appendChild(document.createTextNode(truncateTextIfLongerThan(list[i],30)));
         li.appendChild(ref);
@@ -67,7 +68,7 @@ function remove(element) {
                 ul.removeChild(ul.firstChild);
             }
             generateList(res.list);
-            document.getElementById("newdata").innerText = res.list;
+            // document.getElementById("newdata").innerText = res.list;
         });
     });
 }
@@ -89,7 +90,7 @@ saveLink.onclick = function () {
                 ul.removeChild(ul.firstChild);
             }
             generateList(res.list);
-            document.getElementById("newdata").innerText = res.list;
+            // document.getElementById("newdata").innerText = res.list;
         });
     });
 }

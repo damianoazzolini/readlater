@@ -1,6 +1,7 @@
 let saveLink = document.getElementById('saveLink');
 var tablink;
 var ul = document.getElementById("savedList");
+var threshold = 30;
 
 
 chrome.tabs.getSelected(null, function (tab) {
@@ -34,7 +35,7 @@ function generateList(list) {
         li.setAttribute('id', i);
         // but.appendChild(document.createTextNode('R'));
         // li.appendChild(document.createTextNode(list[i]));
-        ref.appendChild(document.createTextNode(truncateTextIfLongerThan(list[i],30)));
+        ref.appendChild(document.createTextNode(truncateTextIfLongerThan(list[i], threshold)));
         li.appendChild(ref);
         li.appendChild(but);
         ul.appendChild(li);
@@ -47,7 +48,7 @@ function truncateTextIfLongerThan(str,thresh) {
     if (str.length > thresh) {
         return str.substring(0, thresh - ending.length) + ending;
     } else {
-        return str;
+        return str.padEnd(thresh-str.length);
     }
 }
 

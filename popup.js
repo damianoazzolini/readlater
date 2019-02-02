@@ -24,15 +24,15 @@ document.body.onload = function () {
 function generateList(list) {
     for (var i = 0; i < list.length; i++) {
         var li = document.createElement("li");
-        var but = document.createElement("button");
+        var but = document.createElement("i");
         var ref = document.createElement("a");
         ref.setAttribute('href', list[i]);
         ref.setAttribute('target', "_blank"); // oper in new tab but closes the extension
         but.setAttribute('id', i);
-        but.setAttribute('class','button removebutton');
+        but.setAttribute('class','button removebutton fas fa-minus-circle');
         but.addEventListener("click", remove);
         li.setAttribute('id', i);
-        but.appendChild(document.createTextNode('R'));
+        // but.appendChild(document.createTextNode('R'));
         // li.appendChild(document.createTextNode(list[i]));
         ref.appendChild(document.createTextNode(truncateTextIfLongerThan(list[i],30)));
         li.appendChild(ref);

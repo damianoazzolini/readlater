@@ -1,5 +1,5 @@
 body {
-    background-color: #f8efc9;
+    background-color: #606060;
     width: 250px;
     border-color: white;
     border-style: solid;
@@ -14,13 +14,15 @@ html {
 }
 
 h1 {
-    color: #ad112a;
+    color: #ffffff;
     font-family: verdana;
     text-align: center;
+    vertical-align: middle;
+    position: relative;
 }
 
 a {
-  color: green;
+  color: #ffffff;
 }
 
 .references {
@@ -33,7 +35,7 @@ a {
     display: inline;
     margin: 4px 2px;
     border: 1px solid rgb(175, 76, 76);
-    color: #675b37;
+    color: #ffffff;
     margin-left: 10px;
     cursor: pointer;
     border: none;
@@ -55,7 +57,19 @@ a {
 .addbutton {
     cursor: pointer;
     font-size: 2em;
-    color: #675b37;
+    color: #ffffff;
+}
+
+
+.hcontainer {
+    background-color: #373737;
+    height: 50px;
+    position: relative;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /*

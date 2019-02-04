@@ -9,16 +9,13 @@ chrome.tabs.getSelected(null, function (tab) {
 });
 
 document.body.onload = function () {
-    // var testArray = ["aaa", "bbb", "ccc","ddd"];
-
-    // chrome.storage.local.set({ list: testArray }, function () {
-    // });
     var ul = document.getElementById("savedList");
 
     chrome.storage.local.get({ list: [] }, function (data) {
         var myJSON = JSON.stringify(data);
         var res = JSON.parse(myJSON);
-        generateList(res.list);
+        if(res.list.length > 0)
+            generateList(res.list);
     });
 }
 
